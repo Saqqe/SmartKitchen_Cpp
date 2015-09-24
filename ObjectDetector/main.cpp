@@ -5,17 +5,49 @@
 #include <dlib/data_io.h>
 #include <dlib/cmd_line_parser.h>
 
-
+#include <sys/types.h>
+#include <dirent.h>
+#include <string>
+#include <errno.h>
 #include <iostream>
-#include <fstream>
 
 
 using namespace std;
 using namespace dlib;
 
 
-//const char * const svmPath = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder";
+const char * const svmPath = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder";
+int status;
 
+/**
+Check given directory for svm files
+save the names of the .svm files in the vector!
+**/
+int getSVMFiles (string dir, std::vector<std::string> &files)
+{
+    DIR *dp;
+    struct dirent *dirp;
+    size_t found;
+    string temp;
+
+    if((dp  = opendir(dir.c_str())) == NULL) {
+        cout << "Error(" << errno << ") opening " << dir << endl;
+        return errno;
+    }
+
+    while ((dirp = readdir(dp)) != NULL) {
+
+        temp  = string(dirp->d_name);
+        found = temp.find_last_of(".");
+
+        if(temp.substr(found+1) == "svm")
+        {
+            files.push_back(string(dirp->d_name));
+        }
+    }
+    closedir(dp);
+    return 0;
+}//End of getSVMFiles
 
 int main(int argc, char** argv)
 {
@@ -28,50 +60,66 @@ int main(int argc, char** argv)
 
         if(cmdParser.number_of_arguments() > 0)
         {
-            ifstream fin("milk.svm", ios::binary);
-            if(!fin)
+            size_t found;
+
+            string dir = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder";
+            std::vector<std::string> files = std::vector<std::string>();
+
+            getSVMFiles(dir,files);
+
+            for (unsigned int i = 0;i < files.size();i++)
             {
-                cout << "Could not find the file!" << endl;
-                return EXIT_FAILURE;
-            }
-
-            object_detector<image_scanner_type> detector;
-            dlib::array<array2d<unsigned char> > images;
-            deserialize(detector, fin);
-
-            int counter = 0;
-            int result;
-            string picName = "";
-            string saveTO = "";
-            string unKownPicsPath = "/home/saqib/ShareWithWindows/UnkownPics/";
-            //Load images!
-            images.resize(cmdParser.number_of_arguments());
-            for(unsigned long i = 0; i < images.size(); ++i)
-            {
-                load_image(images[i], cmdParser[i]);
-
-                // Run the detector on images[i]
-                const std::vector<rectangle> rects = detector(images[i]);
-                //cout << "\nNumber of detections: "<< rects.size() << endl;
-                if(rects.size() > 0)
+                status = chdir(svmPath);
+                const char* const fileName = files[i].c_str();
+                ifstream fin(fileName, ios::binary);
+                if(!fin)
                 {
-                    counter++;
+                    cout << "Could not find the file!" << endl;
+                    return EXIT_FAILURE;
                 }
-                else
+
+                object_detector<image_scanner_type> detector;
+                deserialize(detector, fin);
+
+                dlib::array<array2d<unsigned char> > images;
+
+                int counter = 0;
+
+                string picName        = "";
+                string saveTO         = "";
+                string unKownPicsPath = "/home/saqib/ShareWithWindows/UnkownPics/";
+
+                //Load images!
+                images.resize(cmdParser.number_of_arguments());
+                for(unsigned long j = 0; j < images.size(); ++j)
                 {
-                    picName = cmdParser[i];
-                    size_t found = picName.find_last_of("/");
+                    load_image(images[j], cmdParser[j]);
 
-                    saveTO = unKownPicsPath + picName.substr(found+1);
+                    // Run the detector on images[j]
+                    const std::vector<rectangle> rects = detector(images[j]);
+                    //cout << "\nNumber of detections: "<< rects.size() << endl;
+                    if(rects.size() > 0)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        picName = cmdParser[j];
+                        found   = picName.find_last_of("/");
+                        saveTO  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
 
+                        //Linux, move file
+                        const char * c = saveTO.c_str();
+                        status         = system(c);
 
-
-                    cout << picName.substr(found+1) << endl;
-                    cout << saveTO << endl;
-                }
-            }//End of for-loop
-            cout << "\n" << counter << "/" << images.size() << endl;
-        return EXIT_SUCCESS;
+                        //cout << picName.substr(found+1) << endl;
+                        //cout << saveTO << endl;
+                    }
+                }//End of for-loop, detector!
+                cout << files[i];
+                cout << "\n" << counter << "/" << images.size() << endl;
+            }//End of for-loop, svmFile
+            return EXIT_SUCCESS;
         }//End of number_of_arguments > 0 check
 
         if(cmdParser.number_of_arguments() == 0)
@@ -86,5 +134,4 @@ int main(int argc, char** argv)
         cout << e.what() << endl;
         cout << "\nTry the -h option! " << endl;
     }
-
 }

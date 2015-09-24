@@ -8309,8 +8309,14 @@ dlib/data_io.h
 -
 dlib/cmd_line_parser.h
 -
-iostream
+sys/types.h
 -
-fstream
+dirent.h
+-
+string
+-
+errno.h
+-
+iostream
 -
 
