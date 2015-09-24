@@ -60,13 +60,100 @@ int main(int argc, char** argv)
 
         if(cmdParser.number_of_arguments() > 0)
         {
+            //Init
+            string picName        = "";
+            string saveTO         = "";
+            string unKownPicsPath = "/home/saqib/ShareWithWindows/UnkownPics/";
+            int objFoundCounter   = 0;
             size_t found;
 
-            string dir = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder";
-            std::vector<std::string> files = std::vector<std::string>();
 
+            //Load SVM files!
+            string dir                     = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder";
+            std::vector<std::string> files = std::vector<std::string>();
             getSVMFiles(dir,files);
 
+            //Test for-loop
+            for(unsigned int i = 0; i < files.size(); ++i)
+            {
+                cout << files[i] << endl;
+            }
+
+
+
+            //Load images
+            dlib::array<array2d<unsigned char> > images;
+            images.resize(cmdParser.number_of_arguments());
+            for(unsigned int i = 0; i < images.size(); ++i)
+            {
+                load_image(images[i], cmdParser[i]);
+            }//End of imageLoad for-loop
+
+            //Init detector
+            object_detector<image_scanner_type> detector;
+
+
+            //Swap svm files
+            for(unsigned int i = 0; i < files.size(); ++i)
+            {
+                //Load a svm file
+                status = chdir(svmPath);
+                const char* const fileName = files[i].c_str();
+                ifstream fin(fileName, ios::binary);
+                if(!fin)
+                {
+                    cout << "Could not find the file!" << endl;
+                    return EXIT_FAILURE;
+                }//End of if(!fin)
+
+                //Load the detector!
+                deserialize(detector, fin);
+
+                //Try to detect
+                for(unsigned int j = 0; j < images.size(); ++j)
+                {
+                    //try to detect!
+                    const std::vector<rectangle> rects = detector(images[j]);
+
+                    //Check if detector found something
+                    if(rects.size() > 0)
+                    {
+                        /**
+                        Object detected on THIS image with current SVMFile.
+                        Do something with this info!
+                        **/
+
+                        cout << "Found obj in: " << cmdParser[j] << " With: " << files[i] << endl;
+
+                    }//End of if
+                    /**
+                    If last SVM file and no Obj detected, then move this image to "Unkown" folder!
+                    **/
+                    else if(i == files.size()-1 && rects.size() == 0)
+                    {
+                        /**
+                        picName = cmdParser[j];
+                        found   = picName.find_last_of("/");
+                        saveTO  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
+
+
+                        //Linux, move file
+                        const char * c = saveTO.c_str();
+                        status         = system(c);
+                        **/
+                        cout << "Moveing!" << files[i] << endl;
+
+                    }//End of Else-if
+                    else
+                    {
+                        cout << "Did not found with: " << files[i] << endl;
+                    }
+
+                }//End of try to detect for-loop
+            }//End of SVM file swap for-loop
+
+
+            /*
             for (unsigned int i = 0;i < files.size();i++)
             {
                 status = chdir(svmPath);
@@ -97,6 +184,7 @@ int main(int argc, char** argv)
 
                     // Run the detector on images[j]
                     const std::vector<rectangle> rects = detector(images[j]);
+
                     //cout << "\nNumber of detections: "<< rects.size() << endl;
                     if(rects.size() > 0)
                     {
@@ -108,17 +196,21 @@ int main(int argc, char** argv)
                         found   = picName.find_last_of("/");
                         saveTO  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
 
+
                         //Linux, move file
                         const char * c = saveTO.c_str();
                         status         = system(c);
 
-                        //cout << picName.substr(found+1) << endl;
-                        //cout << saveTO << endl;
+
+                        cout << picName.substr(found+1) << endl;
+                        cout << saveTO << endl;
+
                     }
                 }//End of for-loop, detector!
                 cout << files[i];
                 cout << "\n" << counter << "/" << images.size() << endl;
             }//End of for-loop, svmFile
+            */
             return EXIT_SUCCESS;
         }//End of number_of_arguments > 0 check
 
@@ -127,11 +219,11 @@ int main(int argc, char** argv)
             return EXIT_FAILURE;
         }
 
-    }
+    }//End of try-block
     catch(exception& e)
     {
         cout << "\nException thrown" << endl;
         cout << e.what() << endl;
         cout << "\nTry the -h option! " << endl;
     }
-}
+}//End of main()

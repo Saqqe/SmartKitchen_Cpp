@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1443007624 source:/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/main.cpp
+1443011987 source:/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/main.cpp
 	<dlib/svm_threaded.h>
 	<dlib/string.h>
 	<dlib/gui_widgets.h>
@@ -8,9 +8,8 @@
 	<dlib/cmd_line_parser.h>
 	<sys/types.h>
 	<dirent.h>
-	<errno.h>
-	<vector>
 	<string>
+	<errno.h>
 	<iostream>
 
 1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/svm_threaded.h
@@ -4917,4 +4916,247 @@
 	<string>
 	"../interfaces/cmd_line_parser_option.h"
 	"../string.h"
+
+1442905583 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/string
+
+1439691970 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/iostream
+	"dlib_include_path_tutorial.txt"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/dlib_include_path_tutorial.txt
+	"dlib/queue.h"
+
+1439691972 source:/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/all/source.cpp
+	"../base64/base64_kernel_1.cpp"
+	"../bigint/bigint_kernel_1.cpp"
+	"../bigint/bigint_kernel_2.cpp"
+	"../bit_stream/bit_stream_kernel_1.cpp"
+	"../entropy_decoder/entropy_decoder_kernel_1.cpp"
+	"../entropy_decoder/entropy_decoder_kernel_2.cpp"
+	"../entropy_encoder/entropy_encoder_kernel_1.cpp"
+	"../entropy_encoder/entropy_encoder_kernel_2.cpp"
+	"../md5/md5_kernel_1.cpp"
+	"../tokenizer/tokenizer_kernel_1.cpp"
+	"../unicode/unicode.cpp"
+	"../data_io/image_dataset_metadata.cpp"
+	"../sockets/sockets_kernel_1.cpp"
+	"../bsp/bsp.cpp"
+	"../dir_nav/dir_nav_kernel_1.cpp"
+	"../dir_nav/dir_nav_kernel_2.cpp"
+	"../dir_nav/dir_nav_extensions.cpp"
+	"../linker/linker_kernel_1.cpp"
+	"../logger/extra_logger_headers.cpp"
+	"../logger/logger_kernel_1.cpp"
+	"../logger/logger_config_file.cpp"
+	"../misc_api/misc_api_kernel_1.cpp"
+	"../misc_api/misc_api_kernel_2.cpp"
+	"../sockets/sockets_extensions.cpp"
+	"../sockets/sockets_kernel_2.cpp"
+	"../sockstreambuf/sockstreambuf.cpp"
+	"../sockstreambuf/sockstreambuf_unbuffered.cpp"
+	"../server/server_kernel.cpp"
+	"../server/server_iostream.cpp"
+	"../server/server_http.cpp"
+	"../threads/multithreaded_object_extension.cpp"
+	"../threads/threaded_object_extension.cpp"
+	"../threads/threads_kernel_1.cpp"
+	"../threads/threads_kernel_2.cpp"
+	"../threads/threads_kernel_shared.cpp"
+	"../threads/thread_pool_extension.cpp"
+	"../timer/timer.cpp"
+	"../stack_trace.cpp"
+	"../image_loader/png_loader.cpp"
+	"../image_saver/save_png.cpp"
+	"../image_loader/jpeg_loader.cpp"
+	"../image_saver/save_jpeg.cpp"
+	"../gui_widgets/fonts.cpp"
+	"../gui_widgets/widgets.cpp"
+	"../gui_widgets/drawable.cpp"
+	"../gui_widgets/canvas_drawing.cpp"
+	"../gui_widgets/style.cpp"
+	"../gui_widgets/base_widgets.cpp"
+	"../gui_core/gui_core_kernel_1.cpp"
+	"../gui_core/gui_core_kernel_2.cpp"
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bigint/bigint_kernel_1.cpp
+	"bigint_kernel_1.h"
+	<iostream>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bigint/bigint_kernel_1.h
+	"bigint_kernel_abstract.h"
+	"../algs.h"
+	"../serialize.h"
+	"../uintn.h"
+	<iosfwd>
+	"bigint_kernel_1.cpp"
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bigint/bigint_kernel_abstract.h
+	<iosfwd>
+	"../algs.h"
+	"../serialize.h"
+	"../uintn.h"
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bigint/bigint_kernel_2.cpp
+	"bigint_kernel_2.h"
+	<iostream>
+	<cmath>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bigint/bigint_kernel_2.h
+	"bigint_kernel_abstract.h"
+	"../algs.h"
+	"../serialize.h"
+	"../uintn.h"
+	<iosfwd>
+	<cmath>
+	<complex>
+	<vector>
+	"bigint_kernel_2.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bit_stream/bit_stream_kernel_1.cpp
+	"bit_stream_kernel_1.h"
+	"../algs.h"
+	<iostream>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bit_stream/bit_stream_kernel_1.h
+	"bit_stream_kernel_abstract.h"
+	<iosfwd>
+	"bit_stream_kernel_1.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bit_stream/bit_stream_kernel_abstract.h
+	<iosfwd>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/md5/md5_kernel_1.cpp
+	"md5_kernel_1.h"
+	"../uintn.h"
+	<sstream>
+	<cstring>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/md5/md5_kernel_1.h
+	"md5_kernel_abstract.h"
+	<string>
+	<iosfwd>
+	"../algs.h"
+	"md5_kernel_1.cpp"
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/md5/md5_kernel_abstract.h
+	<string>
+	<iosfwd>
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bsp/bsp.cpp
+	"bsp.h"
+	<stack>
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bsp/bsp.h
+	"bsp_abstract.h"
+	"../sockets.h"
+	"../array.h"
+	"../smart_pointers.h"
+	"../sockstreambuf.h"
+	"../string.h"
+	"../serialize.h"
+	"../map.h"
+	"../ref.h"
+	"../vectorstream.h"
+	<queue>
+	<vector>
+	"bsp.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/bsp/bsp_abstract.h
+	"../noncopyable.h"
+	"../sockets/sockets_extensions_abstract.h"
+	<vector>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/ref.h
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/linker/linker_kernel_1.cpp
+	"linker_kernel_1.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/linker/linker_kernel_1.h
+	"linker_kernel_abstract.h"
+	"../threads.h"
+	"../sockets.h"
+	"../algs.h"
+	"linker_kernel_1.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/linker/linker_kernel_abstract.h
+	"../threads/threads_kernel_abstract.h"
+	"../sockets/sockets_kernel_abstract.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_kernel.cpp
+	"server_kernel.h"
+	"../string.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_kernel.h
+	"server_kernel_abstract.h"
+	"../threads.h"
+	"../sockets.h"
+	<string>
+	"../algs.h"
+	"../set.h"
+	"../logger.h"
+	"../smart_pointers.h"
+	"server_kernel.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_kernel_abstract.h
+	"../threads/threads_kernel_abstract.h"
+	"../sockets/sockets_kernel_abstract.h"
+	<string>
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_iostream.cpp
+	"server_iostream.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_iostream.h
+	<iostream>
+	"server_iostream_abstract.h"
+	"../logger.h"
+	"../uintn.h"
+	"server_kernel.h"
+	"../sockstreambuf.h"
+	"../map.h"
+	"server_iostream.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_iostream_abstract.h
+	"server_kernel_abstract.h"
+	<iostream>
+	<string>
+	"../uintn.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_http.cpp
+	"server_http.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_http.h
+	"server_http_abstract.h"
+	<iostream>
+	<sstream>
+	<string>
+	<cctype>
+	<map>
+	"../logger.h"
+	"../string.h"
+	"server_iostream.h"
+	"server_http.cpp"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/server/server_http_abstract.h
+	"server_iostream_abstract.h"
+	<iostream>
+	<string>
+	<map>
+
+1439691972 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/stack_trace.cpp
+	<sstream>
+	<cstring>
+	"stack_trace.h"
+	"threads.h"
+	"stack.h"
+	"memory_manager.h"
+
+1439691971 /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/dlib/image_saver/save_jpeg.cpp
+	"../array2d.h"
+	"../pixel.h"
+	"save_jpeg.h"
+	<stdio.h>
+	"../external/libjpeg/jpeglib.h"
+	<jpeglib.h>
+	<sstream>
+	<setjmp.h>
+	"image_saver.h"
 
