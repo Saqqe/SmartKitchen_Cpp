@@ -64,8 +64,12 @@ int main(int argc, char** argv)
             string picName        = "";
             string saveTO         = "";
             string unKownPicsPath = "/home/saqib/ShareWithWindows/UnkownPics/";
+            bool objNotDetected   = false;
             int objFoundCounter   = 0;
             size_t found;
+            dlib::array<array2d<unsigned char> > imagesDetected;
+            dlib::array<array2d<unsigned char> > imagesNotDetected;
+
 
 
             //Load SVM files!
@@ -76,14 +80,15 @@ int main(int argc, char** argv)
             //Test for-loop
             for(unsigned int i = 0; i < files.size(); ++i)
             {
-                cout << files[i] << endl;
+                cout << files[i] << " i:" << i <<  endl;
             }
-
+            cout << files.size() << endl;
 
 
             //Load images
             dlib::array<array2d<unsigned char> > images;
             images.resize(cmdParser.number_of_arguments());
+            //imagesDetected.resize(cmdParser.num_of_arguments());
             for(unsigned int i = 0; i < images.size(); ++i)
             {
                 load_image(images[i], cmdParser[i]);
@@ -118,99 +123,51 @@ int main(int argc, char** argv)
                     //Check if detector found something
                     if(rects.size() > 0)
                     {
-                        /**
-                        Object detected on THIS image with current SVMFile.
-                        Do something with this info!
-                        **/
+                        // Object in image is detected! update "LagerStatus"
 
-                        cout << "Found obj in: " << cmdParser[j] << " With: " << files[i] << endl;
+                        objFoundCounter++;
+                        imagesDetected.push_back(images[j]);
 
-                    }//End of if
-                    /**
-                    If last SVM file and no Obj detected, then move this image to "Unkown" folder!
-                    **/
+
+
+                        cout << "Size of images-array: " << images.size() << endl;
+                        cout << "Size of imagesDetected-array: " << imagesDetected.size() << endl;
+                    }
+                    //Testing
                     else if(i == files.size()-1 && rects.size() == 0)
                     {
-                        /**
+                        // Could not detect any object in this Image. Move it to unkown!
+
                         picName = cmdParser[j];
                         found   = picName.find_last_of("/");
                         saveTO  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
 
-
                         //Linux, move file
                         const char * c = saveTO.c_str();
                         status         = system(c);
-                        **/
-                        cout << "Moveing!" << files[i] << endl;
 
-                    }//End of Else-if
-                    else
-                    {
-                        cout << "Did not found with: " << files[i] << endl;
+                        if(!objNotDetected)
+                        {
+                            objNotDetected = true;
+                        }
                     }
-
                 }//End of try to detect for-loop
             }//End of SVM file swap for-loop
 
+            cout << "\n\nFound: " << objFoundCounter << endl;
+            cout << "Size of images-array: " << images.size() << endl;
+            cout << "Size of imagesDetected-array: " << imagesDetected.size() << endl;
 
-            /*
-            for (unsigned int i = 0;i < files.size();i++)
+            if(objNotDetected)
             {
-                status = chdir(svmPath);
-                const char* const fileName = files[i].c_str();
-                ifstream fin(fileName, ios::binary);
-                if(!fin)
-                {
-                    cout << "Could not find the file!" << endl;
-                    return EXIT_FAILURE;
-                }
+                cout << "There is new images in unkwon folder!" << endl;
+                // Somehow tell user about this!
+            }
+            else
+            {
+                cout << "There is NO new images in unkwon folder!" << endl;
+            }
 
-                object_detector<image_scanner_type> detector;
-                deserialize(detector, fin);
-
-                dlib::array<array2d<unsigned char> > images;
-
-                int counter = 0;
-
-                string picName        = "";
-                string saveTO         = "";
-                string unKownPicsPath = "/home/saqib/ShareWithWindows/UnkownPics/";
-
-                //Load images!
-                images.resize(cmdParser.number_of_arguments());
-                for(unsigned long j = 0; j < images.size(); ++j)
-                {
-                    load_image(images[j], cmdParser[j]);
-
-                    // Run the detector on images[j]
-                    const std::vector<rectangle> rects = detector(images[j]);
-
-                    //cout << "\nNumber of detections: "<< rects.size() << endl;
-                    if(rects.size() > 0)
-                    {
-                        counter++;
-                    }
-                    else
-                    {
-                        picName = cmdParser[j];
-                        found   = picName.find_last_of("/");
-                        saveTO  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
-
-
-                        //Linux, move file
-                        const char * c = saveTO.c_str();
-                        status         = system(c);
-
-
-                        cout << picName.substr(found+1) << endl;
-                        cout << saveTO << endl;
-
-                    }
-                }//End of for-loop, detector!
-                cout << files[i];
-                cout << "\n" << counter << "/" << images.size() << endl;
-            }//End of for-loop, svmFile
-            */
             return EXIT_SUCCESS;
         }//End of number_of_arguments > 0 check
 
