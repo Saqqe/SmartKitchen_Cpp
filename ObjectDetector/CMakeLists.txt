@@ -8,7 +8,14 @@ cmake_minimum_required(VERSION 2.8.4)
 
 PROJECT(ObjectDetector)
 
+#Need for json.hpp
+#SET(CMAKE_CXX_FLAGS "-std=c++11")
+
 include(dlib/cmake)
+
+#include the subdirectory containing our libs
+#add_subdirectory (cpp-json)
+#include_directories(cpp-json)
 
 # Tell CMake to compile a program.  We do this with the ADD_EXECUTABLE()
 # statement which takes the name of the output executable and then a list of
@@ -19,31 +26,14 @@ include(dlib/cmake)
 #TARGET_LINK_LIBRARIES(assignment_learning_ex dlib)
 
 
-
-
 # Since there are a lot of examples I'm going to use a macro to simply this
 # CMakeLists.txt file.  However, usually you will create only one executable in
 # your cmake projects and use the syntax shown above.
 MACRO(add_example name)
-   ADD_EXECUTABLE(${name} ${name}.cpp)
+   ADD_EXECUTABLE(${name} ${name}.cpp json.hpp)
    TARGET_LINK_LIBRARIES(${name} dlib )
 ENDMACRO()
 
 
 #here we apply our macros 
 add_example(main)
-
-
-
-find_package(OpenCV)
-if (OpenCV_FOUND)
-   include_directories(${OpenCV_INCLUDE_DIRS})
-
-   ADD_EXECUTABLE(webcam_face_pose_ex webcam_face_pose_ex.cpp)
-   TARGET_LINK_LIBRARIES(webcam_face_pose_ex dlib ${OpenCV_LIBS} )
-endif()
-
-
-if (DLIB_LINK_WITH_SQLITE3)
-   add_example(sqlite_ex)
-endif()

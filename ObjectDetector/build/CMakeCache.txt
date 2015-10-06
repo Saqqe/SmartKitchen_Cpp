@@ -32,7 +32,7 @@ CMAKE_COLOR_MAKEFILE:BOOL=ON
 CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
 //Flags used by the compiler during all C++ builds.
-CMAKE_CXX_FLAGS:STRING= -Wreturn-type -DDLIB_PNG_SUPPORT -DDLIB_JPEG_SUPPORT
+CMAKE_CXX_FLAGS:STRING=-std=c++11 -Wreturn-type -DDLIB_PNG_SUPPORT -DDLIB_JPEG_SUPPORT -DDLIB_USE_BLAS -DDLIB_USE_LAPACK
 
 //Flags used by the compiler during C++ debug builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g -DENABLE_ASSERTS
@@ -198,10 +198,10 @@ DLIB_LINK_WITH_SQLITE3:STRING=OFF
 DLIB_NO_GUI_SUPPORT:BOOL=OFF
 
 //Disable this if you don't want to use a BLAS library
-DLIB_USE_BLAS:STRING=OFF
+DLIB_USE_BLAS:BOOL=ON
 
 //Disable this if you don't want to use a LAPACK library
-DLIB_USE_LAPACK:STRING=OFF
+DLIB_USE_LAPACK:BOOL=ON
 
 //Single output directory for building all executables.
 EXECUTABLE_OUTPUT_PATH:PATH=
@@ -212,6 +212,9 @@ JPEG_INCLUDE_DIR:PATH=JPEG_INCLUDE_DIR-NOTFOUND
 //Path to a library.
 JPEG_LIBRARY:FILEPATH=JPEG_LIBRARY-NOTFOUND
 
+//Dependencies for target
+Json_LIB_DEPENDS:STATIC=
+
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
 
@@ -220,9 +223,6 @@ ObjectDetector_BINARY_DIR:STATIC=/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/O
 
 //Value Computed by CMake
 ObjectDetector_SOURCE_DIR:STATIC=/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector
-
-//The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=OpenCV_DIR-NOTFOUND
 
 //Path to a library.
 PNG_LIBRARY_DEBUG:FILEPATH=PNG_LIBRARY_DEBUG-NOTFOUND
@@ -432,19 +432,13 @@ ZLIB_INCLUDE_DIR:PATH=/usr/include
 ZLIB_LIBRARY:FILEPATH=/usr/lib/i386-linux-gnu/libz.so
 
 //Path to a library.
-atlas_lib:FILEPATH=atlas_lib-NOTFOUND
-
-//Path to a library.
-cblas_lib:FILEPATH=cblas_lib-NOTFOUND
+cblas_lib:FILEPATH=/usr/lib/libopenblas.so
 
 //Dependencies for the target
-dlib_LIB_DEPENDS:STATIC=general;/usr/lib/i386-linux-gnu/libpthread.so;general;/usr/lib/i386-linux-gnu/libnsl.so;general;/usr/lib/i386-linux-gnu/libX11.so;
+dlib_LIB_DEPENDS:STATIC=general;/usr/lib/i386-linux-gnu/libpthread.so;general;/usr/lib/i386-linux-gnu/libnsl.so;general;/usr/lib/i386-linux-gnu/libX11.so;general;/usr/lib/libopenblas.so;general;/usr/lib/liblapack.so;
 
 //Path to a library.
-generic_blas:FILEPATH=generic_blas-NOTFOUND
-
-//Path to a library.
-lapack_lib:FILEPATH=lapack_lib-NOTFOUND
+lapack_lib:FILEPATH=/usr/lib/liblapack.so
 
 //Path to a library.
 mkl_core:FILEPATH=mkl_core-NOTFOUND
@@ -471,9 +465,6 @@ nsllib:FILEPATH=/usr/lib/i386-linux-gnu/libnsl.so
 pthreadlib:FILEPATH=/usr/lib/i386-linux-gnu/libpthread.so
 
 //Path to a library.
-satlas_lib:FILEPATH=satlas_lib-NOTFOUND
-
-//Path to a library.
 socketlib:FILEPATH=socketlib-NOTFOUND
 
 //Path to a library.
@@ -481,9 +472,6 @@ sqlite:FILEPATH=sqlite-NOTFOUND
 
 //Path to a file.
 sqlite_path:PATH=sqlite_path-NOTFOUND
-
-//Path to a library.
-tatlas_lib:FILEPATH=tatlas_lib-NOTFOUND
 
 
 ########################
@@ -538,6 +526,8 @@ CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//Path to cache edit program executable.
+CMAKE_EDIT_COMMAND:INTERNAL=/usr/bin/cmake-gui
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -637,6 +627,8 @@ CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding X11
 FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/usr/lib/i386-linux-gnu/libX11.so][/usr/include]
+//Have function cblas_ddot
+HAVE_CBLAS:INTERNAL=1
 //Result of TRY_COMPILE
 HAVE_SIZE_OF_VOID_PTR:INTERNAL=TRUE
 //Have include stddef.h
@@ -649,6 +641,8 @@ HAVE_SYS_TYPES_H:INTERNAL=1
 JPEG_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: JPEG_LIBRARY
 JPEG_LIBRARY-ADVANCED:INTERNAL=1
+//Have function sgetrf_single
+OPENBLAS_HAS_LAPACK:INTERNAL=
 //ADVANCED property for variable: PNG_LIBRARY_DEBUG
 PNG_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PNG_LIBRARY_RELEASE
@@ -785,12 +779,8 @@ X11_xf86vmode_INCLUDE_PATH-ADVANCED:INTERNAL=1
 ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY
 ZLIB_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: atlas_lib
-atlas_lib-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: cblas_lib
 cblas_lib-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: generic_blas
-generic_blas-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: lapack_lib
 lapack_lib-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: mkl_core
@@ -809,14 +799,10 @@ mkl_thread-ADVANCED:INTERNAL=1
 nsllib-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pthreadlib
 pthreadlib-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: satlas_lib
-satlas_lib-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: socketlib
 socketlib-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: sqlite
 sqlite-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: sqlite_path
 sqlite_path-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: tatlas_lib
-tatlas_lib-ADVANCED:INTERNAL=1
 

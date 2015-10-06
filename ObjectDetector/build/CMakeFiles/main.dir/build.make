@@ -34,6 +34,9 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector
 
@@ -85,6 +88,8 @@ main: dlib_build/libdlib.a
 main: /usr/lib/i386-linux-gnu/libpthread.so
 main: /usr/lib/i386-linux-gnu/libnsl.so
 main: /usr/lib/i386-linux-gnu/libX11.so
+main: /usr/lib/libopenblas.so
+main: /usr/lib/liblapack.so
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

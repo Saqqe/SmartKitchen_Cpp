@@ -14,11 +14,7 @@
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-g" />
-					<Add directory="../ObjectDetector" />
 				</Compiler>
-				<Linker>
-					<Add directory="../ObjectDetector" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/ObjectDetector" prefix_auto="1" extension_auto="1" />
@@ -27,16 +23,20 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="../ObjectDetector" />
+					<Add option="-std=c++11" />
+					<Add option="-Wall" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add directory="../ObjectDetector" />
+					<Add directory="dlib/all" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wfatal-errors" />
 			<Add option="-Wall" />
+			<Add option="-g" />
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />

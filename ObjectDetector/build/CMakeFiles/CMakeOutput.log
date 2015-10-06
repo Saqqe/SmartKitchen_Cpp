@@ -1,4 +1,4 @@
-The system is: Linux - 3.19.0-25-generic - i686
+The system is: Linux - 3.19.0-30-generic - i686
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -28,30 +28,30 @@ The CXX compiler identification is GNU, found in "/home/saqib/DevFolder/ownDev/S
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4059365009/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4059365009.dir/build.make CMakeFiles/cmTryCompileExec4059365009.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1012423806/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1012423806.dir/build.make CMakeFiles/cmTryCompileExec1012423806.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4059365009.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4059365009.dir/testCCompiler.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec4059365009
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4059365009.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec4059365009.dir/testCCompiler.c.o  -o cmTryCompileExec4059365009 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec1012423806.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1012423806.dir/testCCompiler.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec1012423806
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1012423806.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1012423806.dir/testCCompiler.c.o  -o cmTryCompileExec1012423806 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1824145252/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1824145252.dir/build.make CMakeFiles/cmTryCompileExec1824145252.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2965857391/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2965857391.dir/build.make CMakeFiles/cmTryCompileExec2965857391.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec1824145252
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1824145252.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1824145252 -rdynamic  
+Building C object CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec2965857391
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2965857391.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2965857391 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.8/lto-wrapper
@@ -61,8 +61,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) 
 COMPILER_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib/:/lib/i386-linux-gnu/:/lib/../lib/:/usr/lib/i386-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1824145252' '-rdynamic' '-mtune=generic' '-march=i686'
- /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec1824145252 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2965857391' '-rdynamic' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec2965857391 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
@@ -70,15 +70,15 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1824145252/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1824145252.dir/build.make CMakeFiles/cmTryCompileExec1824145252.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec2965857391/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2965857391.dir/build.make CMakeFiles/cmTryCompileExec2965857391.dir/build]
   ignore line: [make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec1824145252]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1824145252.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1824145252 -rdynamic  ]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec2965857391]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2965857391.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2965857391 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.8/lto-wrapper]
@@ -88,8 +88,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib/:/lib/i386-linux-gnu/:/lib/../lib/:/usr/lib/i386-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1824145252' '-rdynamic' '-mtune=generic' '-march=i686']
-  link line: [ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec1824145252 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2965857391' '-rdynamic' '-mtune=generic' '-march=i686']
+  link line: [ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec2965857391 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -103,7 +103,7 @@ Parsed C implicit link information from above output:
     arg [/lib/ld-linux.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec1824145252] ==> ignore
+    arg [cmTryCompileExec2965857391] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -115,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/i386-linux-gnu] ==> dir [/usr/lib/i386-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/i686-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/i686-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec1824145252.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2965857391.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -147,30 +147,30 @@ Parsed C implicit link information from above output:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec603215316/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec603215316.dir/build.make CMakeFiles/cmTryCompileExec603215316.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2082929240/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2082929240.dir/build.make CMakeFiles/cmTryCompileExec2082929240.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec603215316.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec603215316.dir/testCXXCompiler.cxx.o -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTryCompileExec603215316
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec603215316.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTryCompileExec603215316.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec603215316 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec2082929240.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2082929240.dir/testCXXCompiler.cxx.o -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2082929240
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2082929240.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTryCompileExec2082929240.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2082929240 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec114876127/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec114876127.dir/build.make CMakeFiles/cmTryCompileExec114876127.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1084042750/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1084042750.dir/build.make CMakeFiles/cmTryCompileExec1084042750.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTryCompileExec114876127
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec114876127.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec114876127 -rdynamic  
+Building CXX object CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec1084042750
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1084042750.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1084042750 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.8/lto-wrapper
@@ -180,8 +180,8 @@ Thread model: posix
 gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) 
 COMPILER_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib/:/lib/i386-linux-gnu/:/lib/../lib/:/usr/lib/i386-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec114876127' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=i686'
- /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec114876127 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1084042750' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec1084042750 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
@@ -189,15 +189,15 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec114876127/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec114876127.dir/build.make CMakeFiles/cmTryCompileExec114876127.dir/build]
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1084042750/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1084042750.dir/build.make CMakeFiles/cmTryCompileExec1084042750.dir/build]
   ignore line: [make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp']
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTryCompileExec114876127]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec114876127.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec114876127 -rdynamic  ]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec1084042750]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1084042750.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1084042750 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.8/lto-wrapper]
@@ -207,8 +207,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/i686-linux-gnu/4.8/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib/:/lib/i386-linux-gnu/:/lib/../lib/:/usr/lib/i386-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/i686-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec114876127' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=i686']
-  link line: [ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec114876127 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1084042750' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  link line: [ /usr/lib/gcc/i686-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_i386 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib/ld-linux.so.2 -z relro -o cmTryCompileExec1084042750 /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/i686-linux-gnu/4.8 -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.8/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/i686-linux-gnu/4.8/crtend.o /usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/collect2] ==> ignore
     arg [--sysroot=/] ==> ignore
     arg [--build-id] ==> ignore
@@ -222,7 +222,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib/ld-linux.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec114876127] ==> ignore
+    arg [cmTryCompileExec1084042750] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/i686-linux-gnu/4.8/crtbegin.o] ==> ignore
@@ -234,7 +234,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/i386-linux-gnu] ==> dir [/usr/lib/i386-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/i686-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/i686-linux-gnu/4.8/../../..]
-    arg [CMakeFiles/cmTryCompileExec114876127.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1084042750.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -264,165 +264,180 @@ Parsed CXX implicit link information from above output:
 Determining if the function XOpenDisplay exists in the /usr/lib/i386-linux-gnu/libX11.so passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4193640480/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4193640480.dir/build.make CMakeFiles/cmTryCompileExec4193640480.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec3252835099/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3252835099.dir/build.make CMakeFiles/cmTryCompileExec3252835099.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4193640480.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec4193640480.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec4193640480
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4193640480.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec4193640480.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4193640480 -rdynamic -lX11 
+Building C object CMakeFiles/cmTryCompileExec3252835099.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec3252835099.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3252835099
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3252835099.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec3252835099.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3252835099 -rdynamic -lX11 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function gethostbyname exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3085745320/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3085745320.dir/build.make CMakeFiles/cmTryCompileExec3085745320.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2329002863/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2329002863.dir/build.make CMakeFiles/cmTryCompileExec2329002863.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3085745320.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec3085745320.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec3085745320
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3085745320.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec3085745320.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3085745320 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2329002863.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec2329002863.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2329002863
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2329002863.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec2329002863.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2329002863 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function connect exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec222700796/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec222700796.dir/build.make CMakeFiles/cmTryCompileExec222700796.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2785995933/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2785995933.dir/build.make CMakeFiles/cmTryCompileExec2785995933.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec222700796.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec222700796.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec222700796
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec222700796.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec222700796.dir/CheckFunctionExists.c.o  -o cmTryCompileExec222700796 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2785995933.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec2785995933.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2785995933
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2785995933.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec2785995933.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2785995933 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function remove exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1271170211/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1271170211.dir/build.make CMakeFiles/cmTryCompileExec1271170211.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec4097524025/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4097524025.dir/build.make CMakeFiles/cmTryCompileExec4097524025.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1271170211.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec1271170211.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1271170211
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1271170211.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec1271170211.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1271170211 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec4097524025.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec4097524025.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4097524025
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4097524025.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec4097524025.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4097524025 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function shmat exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1870073062/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1870073062.dir/build.make CMakeFiles/cmTryCompileExec1870073062.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec4177294138/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4177294138.dir/build.make CMakeFiles/cmTryCompileExec4177294138.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1870073062.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec1870073062.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1870073062
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1870073062.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec1870073062.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1870073062 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec4177294138.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec4177294138.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4177294138
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4177294138.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec4177294138.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4177294138 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the include file sys/types.h exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3194353616/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3194353616.dir/build.make CMakeFiles/cmTryCompileExec3194353616.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec3132040963/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3132040963.dir/build.make CMakeFiles/cmTryCompileExec3132040963.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3194353616.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3194353616.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTryCompileExec3194353616
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3194353616.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec3194353616.dir/CheckIncludeFile.c.o  -o cmTryCompileExec3194353616 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec3132040963.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3132040963.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec3132040963
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3132040963.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3132040963.dir/CheckIncludeFile.c.o  -o cmTryCompileExec3132040963 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the include file stdint.h exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1921748569/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1921748569.dir/build.make CMakeFiles/cmTryCompileExec1921748569.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec4153738046/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4153738046.dir/build.make CMakeFiles/cmTryCompileExec4153738046.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1921748569.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1921748569.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTryCompileExec1921748569
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1921748569.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec1921748569.dir/CheckIncludeFile.c.o  -o cmTryCompileExec1921748569 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec4153738046.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4153738046.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec4153738046
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4153738046.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec4153738046.dir/CheckIncludeFile.c.o  -o cmTryCompileExec4153738046 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the include file stddef.h exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1641367595/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1641367595.dir/build.make CMakeFiles/cmTryCompileExec1641367595.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec1206736979/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1206736979.dir/build.make CMakeFiles/cmTryCompileExec1206736979.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1641367595.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1641367595.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTryCompileExec1641367595
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1641367595.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec1641367595.dir/CheckIncludeFile.c.o  -o cmTryCompileExec1641367595 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec1206736979.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1206736979.dir/CheckIncludeFile.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTryCompileExec1206736979
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1206736979.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1206736979.dir/CheckIncludeFile.c.o  -o cmTryCompileExec1206736979 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining size of void* passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec3065221417/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3065221417.dir/build.make CMakeFiles/cmTryCompileExec3065221417.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2673004256/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2673004256.dir/build.make CMakeFiles/cmTryCompileExec2673004256.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3065221417.dir/SIZE_OF_VOID_PTR.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3065221417.dir/SIZE_OF_VOID_PTR.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CheckTypeSize/SIZE_OF_VOID_PTR.c
-Linking C executable cmTryCompileExec3065221417
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3065221417.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec3065221417.dir/SIZE_OF_VOID_PTR.c.o  -o cmTryCompileExec3065221417 -rdynamic 
+Building C object CMakeFiles/cmTryCompileExec2673004256.dir/SIZE_OF_VOID_PTR.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2673004256.dir/SIZE_OF_VOID_PTR.c.o   -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CheckTypeSize/SIZE_OF_VOID_PTR.c
+Linking C executable cmTryCompileExec2673004256
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2673004256.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2673004256.dir/SIZE_OF_VOID_PTR.c.o  -o cmTryCompileExec2673004256 -rdynamic 
+make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cblas_ddot exists passed with the following output:
+Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2053161277/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2053161277.dir/build.make CMakeFiles/cmTryCompileExec2053161277.dir/build
+make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2053161277.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cblas_ddot   -o CMakeFiles/cmTryCompileExec2053161277.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2053161277
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2053161277.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cblas_ddot    CMakeFiles/cmTryCompileExec2053161277.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2053161277 -rdynamic -lopenblas 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the CXX compiler has std namespace passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec785063009/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec785063009.dir/build.make CMakeFiles/cmTryCompileExec785063009.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec2965745541/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2965745541.dir/build.make CMakeFiles/cmTryCompileExec2965745541.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec785063009.dir/TestForSTDNamespace.cxx.o
-/usr/bin/c++    -Wreturn-type    -o CMakeFiles/cmTryCompileExec785063009.dir/TestForSTDNamespace.cxx.o -c /usr/share/cmake-2.8/Modules/TestForSTDNamespace.cxx
-Linking CXX executable cmTryCompileExec785063009
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec785063009.dir/link.txt --verbose=1
-/usr/bin/c++    -Wreturn-type     CMakeFiles/cmTryCompileExec785063009.dir/TestForSTDNamespace.cxx.o  -o cmTryCompileExec785063009 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec2965745541.dir/TestForSTDNamespace.cxx.o
+/usr/bin/c++    -Wreturn-type    -o CMakeFiles/cmTryCompileExec2965745541.dir/TestForSTDNamespace.cxx.o -c /usr/share/cmake-2.8/Modules/TestForSTDNamespace.cxx
+Linking CXX executable cmTryCompileExec2965745541
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2965745541.dir/link.txt --verbose=1
+/usr/bin/c++    -Wreturn-type     CMakeFiles/cmTryCompileExec2965745541.dir/TestForSTDNamespace.cxx.o  -o cmTryCompileExec2965745541 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the include file iostream exists passed with the following output:
 Change Dir: /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1745710547/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1745710547.dir/build.make CMakeFiles/cmTryCompileExec1745710547.dir/build
+Run Build Command:/usr/bin/make "cmTryCompileExec3899842356/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3899842356.dir/build.make CMakeFiles/cmTryCompileExec3899842356.dir/build
 make[1]: Entering directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 /usr/bin/cmake -E cmake_progress_report /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building CXX object CMakeFiles/cmTryCompileExec1745710547.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++    -Wreturn-type    -o CMakeFiles/cmTryCompileExec1745710547.dir/CheckIncludeFile.cxx.o -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTryCompileExec1745710547
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1745710547.dir/link.txt --verbose=1
-/usr/bin/c++    -Wreturn-type     CMakeFiles/cmTryCompileExec1745710547.dir/CheckIncludeFile.cxx.o  -o cmTryCompileExec1745710547 -rdynamic 
+Building CXX object CMakeFiles/cmTryCompileExec3899842356.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++    -Wreturn-type    -o CMakeFiles/cmTryCompileExec3899842356.dir/CheckIncludeFile.cxx.o -c /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTryCompileExec3899842356
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3899842356.dir/link.txt --verbose=1
+/usr/bin/c++    -Wreturn-type     CMakeFiles/cmTryCompileExec3899842356.dir/CheckIncludeFile.cxx.o  -o cmTryCompileExec3899842356 -rdynamic 
 make[1]: Leaving directory `/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/CMakeTmp'
 
 
