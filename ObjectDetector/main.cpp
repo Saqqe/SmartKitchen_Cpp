@@ -20,11 +20,6 @@
 #include <errno.h>
 #include <iostream>
 
-/*!
-Need to fix paths! Current paths are hardcoded for devPlatform!
-Need to fix/add inventory manager!
-!*/
-
 using namespace std;
 using namespace dlib;
 using json = nlohmann::json;
@@ -141,8 +136,11 @@ bool decreaseValueByOneJson(string key, json &j)
     if(findKeyInJson(key, j))
     {
         int temp = j.at(key);
-        --temp;
-        j.at(key) = temp;
+        if(temp > 0)
+        {
+            --temp;
+            j.at(key) = temp;
+        }
         return true;
     }
     else
@@ -165,7 +163,7 @@ bool openJsonFile(string fileName, json& j)
     {
         cout << "File found" << endl;
         j = json::parse(file);
-        cout << j.dump(4) << endl;
+        cout << j.dump(4) << endl; // Testing
         file.close();
         return true;
     }
@@ -189,7 +187,7 @@ bool saveJsonToFile(string fileName, json& j)
     std::ofstream outFile(fileName);
     if(outFile.is_open() && !j.empty())
     {
-        cout << "Saveing this: \n\n" << j.dump(4) << endl;
+        cout << "Saveing this: \n\n" << j.dump(4) << endl; // Testing
         outFile << j.dump(4) << endl;
 
         outFile.close();
@@ -236,23 +234,98 @@ int main(int argc, char** argv)
 {
     try
     {
+        //Init Command line parser
         command_line_parser cmdParser;
+
+
+        /**
+        * Setup options, THIS TAG IS FOR TESTING STUFF ONLY!!
+        * Use --test from cmd
+        */
+        cmdParser.add_option("test", "Only for testing stuff!");
+
+        //Start parsing cmd
         cmdParser.parse(argc, argv);
 
+        /**
+        * TODO: Multi object in/out handler!
+        * Create temp folders
+        */
+
         typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type;
+
+        /**
+        Only for testing
+
+        if(cmdParser.option("test"))
+        {
+            string svmFolder = "SVMFolder";
+            directory test(".");
+
+            cout << "\n\ndirectory: " << test.name() << endl;
+            cout << "full path: " << test.full_name() << endl;
+            cout << "is root:   " << ((test.is_root())?"yes":"no") << endl;
+
+            // get all directories and files in test
+            std::vector<directory> dirs = test.get_dirs();
+            std::vector<file> files = test.get_files();
+
+            // sort the files and directories
+            sort(files.begin(), files.end());
+            sort(dirs.begin(), dirs.end());
+
+
+            cout << "\n\n\n";
+
+            // print all the subdirectories
+            for (unsigned long i = 0; i < dirs.size(); ++i)
+            {
+                cout << "        <DIR>    " << dirs[i].name() << "\n";
+
+                if(svmFolder.compare(dirs[i].name()) == 0)
+                {
+                    set_current_dir(dirs[i].name());
+                    cout << "Current dir: " << get_current_dir() << endl;
+
+                    //Load SVM files!
+                    //std::string dir(svmPath);
+                    std::vector<std::string> files = std::vector<std::string>();
+                    getSVMFiles(get_current_dir(),files);
+
+                    //Test loop
+                    for(unsigned int j = 0; j < files.size(); ++j)
+                    {
+                        cout << files[j] << " j:" << j <<  endl;
+                    }
+                    cout << files.size() << endl;
+
+                    set_current_dir("..");//Back on level
+                }
+            }
+            // print all the subfiles
+            for (unsigned long i = 0; i < files.size(); ++i)
+                cout << setw(13) << files[i].size() << "    " << files[i].name() << "\n";
+
+
+            cout << "\n\nAt the end!! Current dir: " << get_current_dir() << endl;
+
+            return EXIT_SUCCESS;
+        }*/
 
         if(cmdParser.number_of_arguments() > 0)
         {
             //Init variables
             string picName              = "";
             string moveTo               = "";
-            string svmPath              = get_current_dir() +"/SVMFolder";
+            //string svmPath              = get_current_dir() +"/SVMFolder";
+            string svmFolder            = "SVMFolder";
             string inventoryFileName    = "Inventory.json";
-            string unKownPicsPath       = "/UnkownPics/"; // Need to fix THIS PATH!!
-            string incomingObj          = "InComing"; //Might use absolute file path!
-            string outgoingObj          = "OutGoing"; //Might use absolute file path!
+            string unKownPicsPath       = get_current_dir() + "/UnkownPics"; // Need to fix THIS PATH!!
+            string incomingObj          = "InComing";
+            string outgoingObj          = "OutGoing";
             string foundWith            = "";
             string itemName             = "";
+            string stepOut              = ".."; //Back one level command
             bool objNotDetected         = false;
             bool deletePics             = false;
             bool itemIn                 = false;
@@ -260,14 +333,30 @@ int main(int argc, char** argv)
             int objFoundCounter         = 0;
             size_t found;
             dlib::array<array2d<unsigned char> > imagesDetected;
-            dlib::array<array2d<unsigned char> > imagesNotDetected;
-
-
-            cout << "\n\nCWD before SVM files! " << get_current_dir() << "\n\n" <<  endl;
-            //Load SVM files!
-            //std::string dir(svmPath);
             std::vector<std::string> files = std::vector<std::string>();
-            getSVMFiles(svmPath,files);
+            directory myDir("."); // Currecnt dir is where the program is!
+
+            cout << "\n\ndirectory: " << myDir.name() << endl;
+            cout << "full path: " << myDir.full_name() << endl;
+            cout << "is root:   " << ((myDir.is_root())?"yes":"no") << endl;
+
+            //Fetch SVM files
+            //std::string dir(svmPath);
+            std::vector<directory> dirs = myDir.get_dirs(); //Fetch all the dirs
+            sort(dirs.begin(), dirs.end());
+            for(unsigned int i = 0; i < dirs.size(); ++i)
+            {
+                cout << "Dirs: " << dirs[i].name() << endl;
+                if(svmFolder.compare(dirs[i].name()) == 0)
+                {
+                    set_current_dir(svmFolder);//Setp into svmFolder
+
+                    getSVMFiles(get_current_dir() ,files);
+
+                    set_current_dir(stepOut); //Back out one level
+                }
+            }//End of for-loop
+
 
             //Test loop
             /*for(unsigned int i = 0; i < files.size(); ++i)
@@ -280,10 +369,13 @@ int main(int argc, char** argv)
             int in  = cmdParser[0].find(incomingObj);
             int out = cmdParser[0].find(outgoingObj);
             if(in > 0)
+            {
                 itemIn = true;
-
+            }
             if(out > 0)
+            {
                 itemOut = true;
+            }
 
 
             cout << "Itemin: " << itemIn << ", itemout: " << itemOut << endl;
@@ -295,8 +387,10 @@ int main(int argc, char** argv)
             //imagesDetected.resize(cmdParser.num_of_arguments());
             for(unsigned int i = 0; i < imagesArraySize; ++i)
             {
-                //Put images in so latest is FIRST in array!
-                load_image(images[imagesArraySize-(1+i)], cmdParser[i]);
+                /**
+                * TODO: Load images, latest first!
+                */
+                load_image(images[i], cmdParser[i]);
                 //cout << "Pic name: " << cmdParser[i] << endl;
             }//End of imageLoad for-loop
 
@@ -310,13 +404,17 @@ int main(int argc, char** argv)
             for(unsigned int i = 0; i < files.size(); ++i)
             {
                 //Load a svm file from the "svmPath" and
-                const char* command        = svmPath.c_str();
+                /*const char* command        = svmPath.c_str();
                 status                     = chdir(command); // Change to svm folder - down on level
+                const char* const fileName = files[i].c_str();*/
+                set_current_dir(svmFolder);
                 const char* const fileName = files[i].c_str();
                 ifstream fin(fileName, ios::binary);
+                set_current_dir(stepOut);
+                //cout << "\n\nCWD in for-loop " << get_current_dir() << "\t\t Root? "<< myDir.is_root() << "\n\n" <<  endl;
                 if(!fin)
                 {
-                    //cout << "Could not find the SVM file!" << endl;
+                    cout << "Could not find the SVM file!" << endl;
                     return EXIT_FAILURE;
                 }//End of if(!fin)
 
@@ -344,7 +442,6 @@ int main(int argc, char** argv)
                             deletePics = true;
                         }
                         break;
-
                     }
                     //Move the pics to unkown folder, if it's the last .svm file.
                     else if(i == files.size()-1 && rects.size() == 0)
@@ -352,7 +449,7 @@ int main(int argc, char** argv)
                         // Could not detect any object in this Image. Move it to unkown!
                         picName = cmdParser[j];
                         found   = picName.find_last_of("/");
-                        moveTo  = "mv " + picName + " " + unKownPicsPath + picName.substr(found+1);
+                        moveTo  = "mv " + cmdParser[j] + " " + unKownPicsPath;
 
                         //Linux, move file
                         const char * c = moveTo.c_str();
@@ -366,9 +463,9 @@ int main(int argc, char** argv)
                     break;
             }//End of SVM file swap for-loop
 
-            const char* c = ".."; // back one level
+            /*const char* c = ".."; // back one level
             status  = chdir(c);
-            cout << "\n\nCWD after SVM for loop: " << get_current_dir() << "\n\n" <<  endl;
+            cout << "\n\nCWD after SVM for loop: " << get_current_dir() << "\t\t Root? " << myDir.is_root() <<  "\n\n" <<  endl;*/
 
             //This is true if obj was found in any pic
             if(deletePics)
@@ -399,11 +496,12 @@ int main(int argc, char** argv)
                     picName = cmdParser[j];
                     found   = picName.find_last_of("/");
                     moveTo  = "mv " + picName + " " + get_current_dir() +"/dustbin/" + picName.substr(found+1); // Change "mv" to "rm", when testing is done
+                    //moveTo  = "rm " + picName;
                     //Linux, move file
                     const char * c = moveTo.c_str();
                     status         = system(c);
                 }//End of for-loop
-            }
+            }//End of if-deletePics
 
             if(objNotDetected)
             {
