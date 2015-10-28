@@ -1,11 +1,12 @@
 /**
-    Main program for object recognition
-    main.cpp
-    Project grupp: Edlund&Sarker
-
-    @author Saqib Sarker
-    @version 0.1 2015-10-06
+* Main program for object recognition
+* main.cpp
+* Project grupp: Edlund&Sarker
+*
+* @author Saqib Sarker
+* @version 0.1 2015-10-06
 */
+
 #include <dlib/svm_threaded.h>
 #include <dlib/string.h>
 #include <dlib/gui_widgets.h>
@@ -19,14 +20,65 @@
 #include <string>
 #include <errno.h>
 #include <iostream>
+#include <fstream>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 
 using namespace std;
 using namespace dlib;
+using namespace std::chrono;
 using json = nlohmann::json;
 
-
-//const char * const svmPathTEST = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/SVMFolder"; // Need to fix THIS PATH!
 int status;
+
+/*!
+* @updateInventory
+*
+* @param action "local" will GET data from server and update local .json
+*               "server" will PUT data from .json to server
+*
+* @return bool  True if command was run
+*/
+bool updateInventory(string action)
+{
+    if(system(NULL) && file_exists("ServerInventoryHandler.py"))
+    {
+        int i;
+        if(action.compare("local") == 0)
+        {
+            i = system("./ServerInventoryHandler.py updateLocalInventory");
+            return true;
+        }
+        else if (action.compare("server") == 0)
+        {
+            i = system("./ServerInventoryHandler.py updateServerInventory");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}//End of updateInventory
+
+/*!
+* @unknownImagesHandling
+*
+* @return void
+*/
+void unknownImagesHandling()
+{
+    if(system(NULL) && file_exists("ServerUnkownImagesHandler.py"))
+    {
+        int i;
+        i = system("./ServerUnkownImagesHandler.py");
+    }
+}//End of unknownImagesHandling
 
 /*!
 * @getSVMFiles
@@ -100,7 +152,7 @@ bool findKeyInJson(string key, json &j)
     }
     else
         return false;
-}
+}//End of findKeyInJson
 
 /*!
 * @increaseValueByOneJson
@@ -121,7 +173,7 @@ bool increaseValueByOneJson(string key, json &j)
     }
     else
         return false;
-}
+}//End of increaseValueByOneJson
 
 /*!
 * @decreaseValueByOneJson
@@ -145,7 +197,7 @@ bool decreaseValueByOneJson(string key, json &j)
     }
     else
         return false;
-}
+}//End of decreaseValueByOneJson
 
 /*!
 * @openJsonFile
@@ -157,22 +209,22 @@ bool decreaseValueByOneJson(string key, json &j)
 */
 bool openJsonFile(string fileName, json& j)
 {
-    cout << "FileName is: " << fileName << endl;
-    std::ifstream file(fileName);
-    if(file)
+    if(updateInventory("local"))
     {
-        cout << "File found" << endl;
-        j = json::parse(file);
-        cout << j.dump(4) << endl; // Testing
-        file.close();
-        return true;
+        std::ifstream file(fileName);
+        if(file)
+        {
+            //cout << "File found" << endl;
+            j = json::parse(file);
+            cout << "Data inside: " << fileName << endl;
+            cout << j.dump(4) << endl; // Testing
+            file.close();
+            return true;
+        }
+        else return false;
     }
-    else
-    {
-        cout << "File not found" << endl;
-        return false;
-    }
-}
+    else return false;
+}//End of openJsonFile
 
 /*!
 * @saveJsonToFile
@@ -187,14 +239,17 @@ bool saveJsonToFile(string fileName, json& j)
     std::ofstream outFile(fileName);
     if(outFile.is_open() && !j.empty())
     {
-        cout << "Saveing this: \n\n" << j.dump(4) << endl; // Testing
+        //cout's for demo!
+        cout << "Saveing this to: " << fileName << endl;
+        cout << j.dump(4) << endl;
         outFile << j.dump(4) << endl;
 
         outFile.close();
+        updateInventory("server");
         return true;
     }
     else return false;
-}
+}//End of saveJsonToFile
 
 /*!
 * @addNewItemJson
@@ -220,7 +275,8 @@ bool addNewItemJson(string itemName, int amount, json& j)
         else
             return false;
     }
-}
+}//End of addNewItemJson
+
 
 /**
 * @main
@@ -247,6 +303,7 @@ int main(int argc, char** argv)
         //Start parsing cmd
         cmdParser.parse(argc, argv);
 
+
         /**
         * TODO: Multi object in/out handler!
         * Create temp folders
@@ -255,72 +312,43 @@ int main(int argc, char** argv)
         typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type;
 
         /**
-        Only for testing
-
+        * Only for testing
+        */
         if(cmdParser.option("test"))
         {
-            string svmFolder = "SVMFolder";
-            directory test(".");
-
-            cout << "\n\ndirectory: " << test.name() << endl;
-            cout << "full path: " << test.full_name() << endl;
-            cout << "is root:   " << ((test.is_root())?"yes":"no") << endl;
-
-            // get all directories and files in test
-            std::vector<directory> dirs = test.get_dirs();
-            std::vector<file> files = test.get_files();
-
-            // sort the files and directories
-            sort(files.begin(), files.end());
-            sort(dirs.begin(), dirs.end());
+            //TODO: TEST Detect Time!
 
 
-            cout << "\n\n\n";
+            high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
-            // print all the subdirectories
-            for (unsigned long i = 0; i < dirs.size(); ++i)
-            {
-                cout << "        <DIR>    " << dirs[i].name() << "\n";
+            std::cout << "printing out 1000 stars...\n";
+            for (int i=0; i<1000; ++i) std::cout << "*";
+            std::cout << std::endl;
 
-                if(svmFolder.compare(dirs[i].name()) == 0)
-                {
-                    set_current_dir(dirs[i].name());
-                    cout << "Current dir: " << get_current_dir() << endl;
+            high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
-                    //Load SVM files!
-                    //std::string dir(svmPath);
-                    std::vector<std::string> files = std::vector<std::string>();
-                    getSVMFiles(get_current_dir(),files);
+            duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
 
-                    //Test loop
-                    for(unsigned int j = 0; j < files.size(); ++j)
-                    {
-                        cout << files[j] << " j:" << j <<  endl;
-                    }
-                    cout << files.size() << endl;
-
-                    set_current_dir("..");//Back on level
-                }
-            }
-            // print all the subfiles
-            for (unsigned long i = 0; i < files.size(); ++i)
-                cout << setw(13) << files[i].size() << "    " << files[i].name() << "\n";
-
-
-            cout << "\n\nAt the end!! Current dir: " << get_current_dir() << endl;
+            std::cout << "It took me " << time_span.count() << " seconds.";
+            std::cout << std::endl;
 
             return EXIT_SUCCESS;
-        }*/
+        }//End of if-test
 
+
+        //REAL PROGRAM!
         if(cmdParser.number_of_arguments() > 0)
         {
+            //Start time
+            high_resolution_clock::time_point progStart = high_resolution_clock::now();
+
             //Init variables
             string picName              = "";
             string moveTo               = "";
             //string svmPath              = get_current_dir() +"/SVMFolder";
             string svmFolder            = "SVMFolder";
             string inventoryFileName    = "Inventory.json";
-            string unKownPicsPath       = get_current_dir() + "/UnkownPics"; // Need to fix THIS PATH!!
+            string unknownPicsPath       = get_current_dir() + "/UnknownPics"; // Need to fix THIS PATH!!
             string incomingObj          = "InComing";
             string outgoingObj          = "OutGoing";
             string foundWith            = "";
@@ -336,9 +364,9 @@ int main(int argc, char** argv)
             std::vector<std::string> files = std::vector<std::string>();
             directory myDir("."); // Currecnt dir is where the program is!
 
-            cout << "\n\ndirectory: " << myDir.name() << endl;
-            cout << "full path: " << myDir.full_name() << endl;
-            cout << "is root:   " << ((myDir.is_root())?"yes":"no") << endl;
+            //cout << "\n\ndirectory: " << myDir.name() << endl;
+            //cout << "full path: " << myDir.full_name() << endl;
+            //cout << "is root:   " << ((myDir.is_root())?"yes":"no") << endl;
 
             //Fetch SVM files
             //std::string dir(svmPath);
@@ -346,7 +374,7 @@ int main(int argc, char** argv)
             sort(dirs.begin(), dirs.end());
             for(unsigned int i = 0; i < dirs.size(); ++i)
             {
-                cout << "Dirs: " << dirs[i].name() << endl;
+                //cout << "Dirs: " << dirs[i].name() << endl;
                 if(svmFolder.compare(dirs[i].name()) == 0)
                 {
                     set_current_dir(svmFolder);//Setp into svmFolder
@@ -356,14 +384,6 @@ int main(int argc, char** argv)
                     set_current_dir(stepOut); //Back out one level
                 }
             }//End of for-loop
-
-
-            //Test loop
-            /*for(unsigned int i = 0; i < files.size(); ++i)
-            {
-                cout << files[i] << " i:" << i <<  endl;
-            }
-            cout << files.size() << endl;*/
 
             //Check file name, determain incoming or outgoing
             int in  = cmdParser[0].find(incomingObj);
@@ -377,8 +397,16 @@ int main(int argc, char** argv)
                 itemOut = true;
             }
 
-
-            cout << "Itemin: " << itemIn << ", itemout: " << itemOut << endl;
+            //For demo!
+            if(itemIn)
+            {
+                cout << "Object is on the way in" << endl;
+            }
+            if(itemOut)
+            {
+                cout << "Object is on the way out" << endl;
+            }
+            //cout << "Itemin: " << itemIn << ", itemout: " << itemOut << endl;
 
             //Load images
             dlib::array<array2d<unsigned char> > images;
@@ -387,26 +415,16 @@ int main(int argc, char** argv)
             //imagesDetected.resize(cmdParser.num_of_arguments());
             for(unsigned int i = 0; i < imagesArraySize; ++i)
             {
-                /**
-                * TODO: Load images, latest first!
-                */
                 load_image(images[i], cmdParser[i]);
                 //cout << "Pic name: " << cmdParser[i] << endl;
             }//End of imageLoad for-loop
 
-
             //Init detector
             object_detector<image_scanner_type> detector;
-
-
 
             //Swap svm files
             for(unsigned int i = 0; i < files.size(); ++i)
             {
-                //Load a svm file from the "svmPath" and
-                /*const char* command        = svmPath.c_str();
-                status                     = chdir(command); // Change to svm folder - down on level
-                const char* const fileName = files[i].c_str();*/
                 set_current_dir(svmFolder);
                 const char* const fileName = files[i].c_str();
                 ifstream fin(fileName, ios::binary);
@@ -443,13 +461,13 @@ int main(int argc, char** argv)
                         }
                         break;
                     }
-                    //Move the pics to unkown folder, if it's the last .svm file.
+                    //Move the pics to unknown folder, if it's the last .svm file.
                     else if(i == files.size()-1 && rects.size() == 0)
                     {
                         // Could not detect any object in this Image. Move it to unkown!
                         picName = cmdParser[j];
                         found   = picName.find_last_of("/");
-                        moveTo  = "mv " + cmdParser[j] + " " + unKownPicsPath;
+                        moveTo  = "mv " + cmdParser[j] + " " + unknownPicsPath;
 
                         //Linux, move file
                         const char * c = moveTo.c_str();
@@ -467,7 +485,7 @@ int main(int argc, char** argv)
             status  = chdir(c);
             cout << "\n\nCWD after SVM for loop: " << get_current_dir() << "\t\t Root? " << myDir.is_root() <<  "\n\n" <<  endl;*/
 
-            //This is true if obj was found in any pic
+            //This is true if object was found in any pic
             if(deletePics)
             {
                 json j;
@@ -506,15 +524,24 @@ int main(int argc, char** argv)
             if(objNotDetected)
             {
                 cout << "There is new images in unkwon folder!" << endl;
+                unknownImagesHandling();
                 // Somehow tell user about this!
             }
             else
             {
-                cout << "There is NO new images in unkwon folder!" << endl;
+                cout << "No new images in unknown folder!" << endl;
             }
 
             cout << "Size of images-array: " << images.size() << endl;
             cout << "Found: " << foundWith << endl;
+
+            //Stop time
+            high_resolution_clock::time_point progStop = high_resolution_clock::now();
+            //Count the time diff
+            duration<double> time_span = duration_cast<duration<double>>(progStop - progStart);
+            std::cout << "It took me " << time_span.count() << " seconds.";
+            std::cout << std::endl;
+
             return EXIT_SUCCESS;
         }//End of number_of_arguments > 0 check
 
