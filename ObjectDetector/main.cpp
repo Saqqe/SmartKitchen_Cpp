@@ -277,6 +277,20 @@ bool addNewItemJson(string itemName, int amount, json& j)
     }
 }//End of addNewItemJson
 
+//Write to log file
+void write_text_to_log_file( const std::string &text )
+{
+    std::ofstream log_file(
+        "log_file.txt", std::ios_base::out | std::ios_base::app );
+    log_file << text << std::endl;
+}//End of write_text_to_log_file
+
+std::string get_extension(const std::string& fileName)
+{
+    size_t lastdot = fileName.find_last_of(".");
+    return fileName.substr(lastdot+1);
+}//End of remove_extension
+
 
 /**
 * @main
@@ -317,8 +331,6 @@ int main(int argc, char** argv)
         if(cmdParser.option("test"))
         {
             //TODO: TEST Detect Time!
-
-
             high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
             std::cout << "printing out 1000 stars...\n";
@@ -329,8 +341,13 @@ int main(int argc, char** argv)
 
             duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
 
-            std::cout << "It took me " << time_span.count() << " seconds.";
-            std::cout << std::endl;
+            std::stringstream ss;
+
+            ss << "It toke: " << time_span.count() << " seconds!"<< endl;
+
+            std::string log_msg = ss.str();
+
+            write_text_to_log_file(log_msg);
 
             return EXIT_SUCCESS;
         }//End of if-test
@@ -539,15 +556,22 @@ int main(int argc, char** argv)
             high_resolution_clock::time_point progStop = high_resolution_clock::now();
             //Count the time diff
             duration<double> time_span = duration_cast<duration<double>>(progStop - progStart);
-            std::cout << "It took me " << time_span.count() << " seconds.";
-            std::cout << std::endl;
+            cout << "It took: " << time_span.count() << " seconds!" << endl;
+
+            std::stringstream stringStream;
+
+            stringStream << "It took: " << time_span.count() << " seconds! Ran program with: " << get_extension(cmdParser[0]) << endl;
+
+            string log_msg = stringStream.str();
+
+            write_text_to_log_file(log_msg);
 
             return EXIT_SUCCESS;
         }//End of number_of_arguments > 0 check
 
         if(cmdParser.number_of_arguments() == 0)
         {
-            cout << "Need a argument!" << endl;
+            cout << "Need an argument!" << endl;
             return EXIT_FAILURE;
         }
     }//End of try-block

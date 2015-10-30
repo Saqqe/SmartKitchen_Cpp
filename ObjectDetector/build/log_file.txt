@@ -1,0 +1,2 @@
+It toke: 4.99078 secound! Ran program with: png
+
