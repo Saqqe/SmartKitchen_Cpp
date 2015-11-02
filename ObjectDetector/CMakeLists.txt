@@ -37,3 +37,4 @@ ENDMACRO()
 
 #here we apply our macros 
 add_example(main)
+add_example(train_object_detector)

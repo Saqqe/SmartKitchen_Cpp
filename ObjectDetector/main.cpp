@@ -73,10 +73,10 @@ bool updateInventory(string action)
 */
 void unknownImagesHandling()
 {
-    if(system(NULL) && file_exists("ServerUnkownImagesHandler.py"))
+    if(system(NULL) && file_exists("ServerUnknownImagesHandler.py"))
     {
         int i;
-        i = system("./ServerUnkownImagesHandler.py");
+        i = system("./ServerUnknownImagesHandler.py");
     }
 }//End of unknownImagesHandling
 
@@ -330,24 +330,7 @@ int main(int argc, char** argv)
         */
         if(cmdParser.option("test"))
         {
-            //TODO: TEST Detect Time!
-            high_resolution_clock::time_point t1 = high_resolution_clock::now();
-
-            std::cout << "printing out 1000 stars...\n";
-            for (int i=0; i<1000; ++i) std::cout << "*";
-            std::cout << std::endl;
-
-            high_resolution_clock::time_point t2 = high_resolution_clock::now();
-
-            duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
-
-            std::stringstream ss;
-
-            ss << "It toke: " << time_span.count() << " seconds!"<< endl;
-
-            std::string log_msg = ss.str();
-
-            write_text_to_log_file(log_msg);
+            unknownImagesHandling();
 
             return EXIT_SUCCESS;
         }//End of if-test

@@ -1,2 +1,20 @@
 It toke: 4.99078 secound! Ran program with: png
 
+It took: 2.91198 seconds! Ran program with: jpg
+
+It took: 2.80511 seconds! Ran program with: jpg
+
+It took: 4.77222 seconds! Ran program with: jpg
+
+It took: 4.89198 seconds! Ran program with: jpg
+
+It took: 5.01797 seconds! Ran program with: jpg
+
+It took: 5.02397 seconds! Ran program with: jpg
+
+It took: 4.98314 seconds! Ran program with: jpg
+
+It took: 15.9261 seconds! Ran program with: jpg
+
+It took: 2.41395 seconds! Ran program with: jpg
+

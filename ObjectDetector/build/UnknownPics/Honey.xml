@@ -1,0 +1,6 @@
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+<image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/10.jpg"><box height="211" left="264" top="123" width="146"><label>Honey</label></box></image><image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/9.jpg"><box height="242" left="282" top="123" width="113"><label>Honey</label></box></image></images>
+</dataset>

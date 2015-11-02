@@ -1,4 +1,4 @@
-import json, sys, os, glob, httplib, string
+import json, sys, os, glob, httplib, string, subprocess
 import xml.etree.ElementTree as ET
 import urllib
 import urllib2
@@ -38,6 +38,7 @@ pics = glob.glob("*.jpg")
 #print pics
 
 ##Write to xmlFile
+itemName = ""
 for i in pics:
     for j in jsonIn:
         if ( i == j['picName']):
@@ -61,4 +62,11 @@ for i in pics:
             label.text = itemName
             tree.write(itemName+".xml")
 
-##TODO: Train and create new svn!
+##Train and create new svn!
+os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build")
+ls_out = subprocess.check_output(['ls'])
+trainObjectDetector = "train_object_detector"
+#print ls_out
+if( trainObjectDetector in ls_out ):
+        subprocess.Popen(['./train_object_detector', '-tv', '-c 5', '--flip',
+                          '/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/'+ itemName +'.xml'])

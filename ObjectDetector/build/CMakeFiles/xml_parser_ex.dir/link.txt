@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -Wreturn-type -DDLIB_PNG_SUPPORT -DDLIB_JPEG_SUPPORT -DDLIB_USE_BLAS -DDLIB_USE_LAPACK -std=c++11 -Wreturn-type -O3 -DNDEBUG    CMakeFiles/xml_parser_ex.dir/xml_parser_ex.cpp.o  -o xml_parser_ex -rdynamic dlib_build/libdlib.a -lpthread -lnsl -lX11 -lopenblas -llapack 

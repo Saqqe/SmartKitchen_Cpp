@@ -115,6 +115,19 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
+# Target rules for targets named train_object_detector
+
+# Build rule for target.
+train_object_detector: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 train_object_detector
+.PHONY : train_object_detector
+
+# fast build rule for target.
+train_object_detector/fast:
+	$(MAKE) -f CMakeFiles/train_object_detector.dir/build.make CMakeFiles/train_object_detector.dir/build
+.PHONY : train_object_detector/fast
+
+#=============================================================================
 # Target rules for targets named dlib
 
 # Build rule for target.
@@ -151,6 +164,30 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+train_object_detector.o: train_object_detector.cpp.o
+.PHONY : train_object_detector.o
+
+# target to build an object file
+train_object_detector.cpp.o:
+	$(MAKE) -f CMakeFiles/train_object_detector.dir/build.make CMakeFiles/train_object_detector.dir/train_object_detector.cpp.o
+.PHONY : train_object_detector.cpp.o
+
+train_object_detector.i: train_object_detector.cpp.i
+.PHONY : train_object_detector.i
+
+# target to preprocess a source file
+train_object_detector.cpp.i:
+	$(MAKE) -f CMakeFiles/train_object_detector.dir/build.make CMakeFiles/train_object_detector.dir/train_object_detector.cpp.i
+.PHONY : train_object_detector.cpp.i
+
+train_object_detector.s: train_object_detector.cpp.s
+.PHONY : train_object_detector.s
+
+# target to generate assembly for a file
+train_object_detector.cpp.s:
+	$(MAKE) -f CMakeFiles/train_object_detector.dir/build.make CMakeFiles/train_object_detector.dir/train_object_detector.cpp.s
+.PHONY : train_object_detector.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -160,10 +197,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... main"
 	@echo "... rebuild_cache"
+	@echo "... train_object_detector"
 	@echo "... dlib"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... train_object_detector.o"
+	@echo "... train_object_detector.i"
+	@echo "... train_object_detector.s"
 .PHONY : help
 
 
