@@ -79,7 +79,8 @@ connection.request('POST', '/1/push', json.dumps({
        },
        "data": { 
               "action": "com.example.saqibfredrik.smartkitchen.CUSTOM_NOTIFICATION",
-              "url": jsonFileURL
+              "url": jsonFileURL,
+              "alert": "You got new unknown images to check!"
             }
      }), {
        "X-Parse-Application-Id": "qLDDiNkDY2lDYxj3eMFkXVSqehoCwYwlxlAxSEOp",
