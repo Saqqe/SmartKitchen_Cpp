@@ -4,6 +4,19 @@ import urllib
 import urllib2
 import requests
 
+#Moves pcitures from source to destination, destination must not contain
+#files with the same name as source or error will occur.
+#Destination directory must exist
+def movePictures():
+    temp = os.getcwd()
+    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/")
+    pics = glob.glob("*.jpg")
+    destination = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/"
+    if pics:
+        for pic in pics:
+            shutil.move(pic, destination+pic)
+    os.chdir(temp)
+
 while True:
     ##Connect to parse.com
     connection = httplib.HTTPSConnection('api.parse.com', 443)
@@ -83,4 +96,7 @@ while True:
         #print ls_out
         if( trainObjectDetector in ls_out ):
             os.popen("./train_object_detector -tv -c 5 --flip /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/"+ itemName +".xml")
+            movePictures()
+            subprocess.Popen("./main /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
+            
     time.sleep(60)

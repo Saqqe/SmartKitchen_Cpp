@@ -392,9 +392,8 @@ int main(int argc, char** argv)
                 string svmFolder            = "SVMFolder";
                 string stepOut              = ".."; //Back one level command
 
-                //Fetch SVM files
-                //std::string dir(svmPath);
-                std::vector<directory> dirs = myDir.get_dirs(); //Fetch all the dirs
+                //Fetch all the dirs
+                std::vector<directory> dirs = myDir.get_dirs();
                 sort(dirs.begin(), dirs.end());
                 for(unsigned int i = 0; i < dirs.size(); ++i)
                 {
@@ -422,6 +421,7 @@ int main(int argc, char** argv)
                      << cross_validate_object_detection_trainer(trainer, images, object_locations, ignore, num_folds) << endl;
             }
 
+            /*
             cout << "Parameters used: " << endl;
             cout << "  threads:                 "<< threads << endl;
             cout << "  C:                       "<< C << endl;
@@ -435,6 +435,7 @@ int main(int argc, char** argv)
             if (parser.option("cross-validate"))
                 cout << "  num_folds: "<< num_folds << endl;
             cout << endl;
+            */
 
             return EXIT_SUCCESS;
         }
