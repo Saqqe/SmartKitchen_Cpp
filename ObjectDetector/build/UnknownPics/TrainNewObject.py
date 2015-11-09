@@ -98,5 +98,4 @@ while True:
             os.popen("./train_object_detector -tv -c 5 --flip /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/"+ itemName +".xml")
             movePictures()
             subprocess.Popen("./main /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
-            
     time.sleep(60)
