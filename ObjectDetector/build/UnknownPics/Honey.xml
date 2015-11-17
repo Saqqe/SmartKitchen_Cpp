@@ -1,6 +1,0 @@
-<dataset>
-<name>imglab dataset</name>
-<comment>Created by imglab tool.</comment>
-<images>
-<image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/2.jpg"><box height="222" left="265" top="123" width="196"><label>Honey</label></box></image><image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/1.jpg"><box height="208" left="262" top="123" width="167"><label>Honey</label></box></image><image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/10.jpg"><box height="185" left="274" top="123" width="132"><label>Honey</label></box></image><image file="/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/4.jpg"><box height="197" left="283" top="123" width="113"><label>Honey</label></box></image></images>
-</dataset>
