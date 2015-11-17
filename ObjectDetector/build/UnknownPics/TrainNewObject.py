@@ -1,22 +1,64 @@
-import json, sys, os, glob, httplib, string, subprocess, time
+import json, sys, os, glob, httplib, string, subprocess, time, shutil
 import xml.etree.ElementTree as ET
 import urllib
 import urllib2
 import requests
 
-#Moves pcitures from source to destination, destination must not contain
-#files with the same name as source or error will occur.
-#Destination directory must exist
-def movePictures():
+knownPicsFolderPath = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
+
+#---------------------------------------------Functions--------------------------------------------------------------------------------
+
+def createDirIfNoExist( folderName ):
+    tempCWD = os.getcwd()
+    newFolder = False
+    ##Create a folder if there is non
+    if not os.path.exists(knownPicsFolderPath+folderName):
+        os.chdir(knownPicsFolderPath)
+        os.makedirs(folderName)
+        newFolder = True
+    os.chdir(tempCWD)
+    return newFolder
+
+##Moves pcitures from source to destination, destination must not contain
+##files with the same name as source or error will occur.
+##Destination directory must exist
+def movePictures( pic, itemName ):
     temp = os.getcwd()
     os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/")
+    destination = knownPicsFolderPath+itemName+"/"
+    shutil.move(pic, destination+pic)
+    os.chdir(temp)
+    return True
+
+##Copy pcitures from source to destination, destination must not contain
+##files with the same name as source or error will occur.
+##Destination directory must exist
+def copyPictures( source ):
+    temp = os.getcwd()
+    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+source+"/")
     pics = glob.glob("*.jpg")
     destination = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/"
     if pics:
         for pic in pics:
-            shutil.move(pic, destination+pic)
+            shutil.copyfile(pic, destination+pic)
     os.chdir(temp)
 
+def trainNewDetector( itemName ):
+    tempCWD = os.getcwd()
+    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build")
+    ls_out = subprocess.check_output(['ls'])
+    trainObjectDetector = "train_object_detector"
+    #print ls_out
+    if( trainObjectDetector in ls_out ):
+        os.popen("./train_object_detector -tv -c 5 --flip /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
+                 + itemName + "/" + itemName +".xml")
+    copyPictures(itemName)
+    subprocess.Popen("./main /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
+    os.chdir(tempCWD)
+
+#----------------------------------------------------------End of functions-------------------------------------------------------------------------
+
+##Loop every 60sec
 while True:
     ##Connect to parse.com
     connection = httplib.HTTPSConnection('api.parse.com', 443)
@@ -51,51 +93,119 @@ while True:
         with open("ConfirmedImages.json", "wb") as code:
             code.write(data)
 
-        #import elementtree.ElementTree as ET
-        tree = ET.parse("template.xml")
-        # if you need the root element, use getroot
-        root = tree.getroot()
+        pics = glob.glob("*.jpg")
 
         ##Read in jsonData
         with open("ConfirmedImages.json", "r") as infile:
             jsonIn = json.load(infile)
 
-        #print jsonIn
-        pics = glob.glob("*.jpg")
-        #print pics
+        newFolders              = []
+        newPicsInOldFolder      = []
+        movedPicToOldFolderName = []
+        isPicsMoved             = False
+        itemName                = ""
+        for pic in pics:
+            for item in jsonIn:
+                itemName    = string.replace(json.dumps(item['itemName']), '"', '')
+                newFolder   = createDirIfNoExist( itemName )
+                if newFolder is True:
+                    newFolders.append(itemName)
+                ##Move pic to right folder!
+                picName = string.replace(json.dumps(item['picName']), '"', '')
+                if( pic == picName ):
+                    movePictures(pic, itemName)
+                    movedPicToOldFolderName.append(pic)
+                    if itemName not in newFolders and itemName not in newPicsInOldFolder:
+                        newPicsInOldFolder.append(itemName)
 
-        ##Write to xmlFile
-        itemName = ""
-        for i in pics:
-            for j in jsonIn:
-                if ( i == j['picName']):
-                    top         = string.replace(json.dumps(j['y']), '"', '\'')
-                    left        = string.replace(json.dumps(j['x']), '"', '\'')
-                    width       = string.replace(json.dumps(j['width']), '"', '\'')
-                    height      = string.replace(json.dumps(j['height']), '"', '\'')
-                    itemName    = string.replace(json.dumps(j['itemName']), '"', '')
-                    filePath    = string.replace(os.path.realpath(i), '"', '\'')
-                    #print "Found name!\n"
-                    images = root[2]
-                    image = ET.SubElement(images, "image")
-                    ##Fullpath
-                    image.set('file', filePath)
-                    box = ET.SubElement(image, "box")
-                    box.set('top', '123')
-                    box.set('left', left)
-                    box.set('width', width)
-                    box.set('height', height)
-                    label = ET.SubElement(box, "label")
-                    label.text = itemName
-                    tree.write(itemName+".xml")
+        ##Check if "newFolders" contains data
+        if newFolders:
+            #print newFolders
+            for folder in newFolders:
+                ##Change working dir to first element in "newFolders"
+                os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder+"/")
+                #print os.getcwd()
 
-        ##Train and create new svn!
-        os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build")
-        ls_out = subprocess.check_output(['ls'])
-        trainObjectDetector = "train_object_detector"
-        #print ls_out
-        if( trainObjectDetector in ls_out ):
-            os.popen("./train_object_detector -tv -c 5 --flip /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/"+ itemName +".xml")
-            movePictures()
-            subprocess.Popen("./main /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
+                pics = glob.glob("*.jpg")
+                tree = ET.parse("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/template.xml")
+                root = tree.getroot()
+
+                itemName = ""
+                for item in jsonIn:
+                    for pic in pics:
+                        if ( pic == item['picName'] ):
+                            top         = string.replace(json.dumps(item['y']), '"', '\'')
+                            #print "Top: " + top
+                            left        = string.replace(json.dumps(item['x']), '"', '\'')
+                            #print "lft: " + left
+                            width       = string.replace(json.dumps(item['width']), '"', '\'')
+                            #print "width: " + width
+                            height      = string.replace(json.dumps(item['height']), '"', '\'')
+                            #print "height: " + height
+                            itemName    = string.replace(json.dumps(item['itemName']), '"', '')
+                            #print "itemName: " + itemName
+                            filePath    = string.replace(os.path.realpath(pic), '"', '\'')
+                            #print "filePath: " + filePath
+                            
+                            #print "Found name!\n"
+                            images = root[2]
+                            image = ET.SubElement(images, "image")
+                            ##Fullpath
+                            image.set('file', filePath)
+                            box = ET.SubElement(image, "box")
+                            box.set('top', top)
+                            box.set('left', left)
+                            box.set('width', width)
+                            box.set('height', height)
+                            label = ET.SubElement(box, "label")
+                            label.text = itemName
+                            tree.write(itemName+".xml")
+                ##Train and create new SVM!
+                #print "In newFolders Start train for " + itemName + "\n"
+                trainNewDetector(itemName)
+
+        if newPicsInOldFolder:
+            #print movedPicToOldFolderName
+            for folder in newPicsInOldFolder:
+                print folder
+                ##Change working dir to first element in "newFolders"
+                os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder)
+                print os.getcwd()
+
+                itemName = ""
+                for item in jsonIn:
+                    for pic in movedPicToOldFolderName:
+                        if ( pic == item['picName'] and folder == item['itemName'] ):
+                            top         = string.replace(json.dumps(item['y']), '"', '\'')
+                            #print "Top: " + top
+                            left        = string.replace(json.dumps(item['x']), '"', '\'')
+                            #print "lft: " + left
+                            width       = string.replace(json.dumps(item['width']), '"', '\'')
+                            #print "width: " + width
+                            height      = string.replace(json.dumps(item['height']), '"', '\'')
+                            #print "height: " + height
+                            itemName    = string.replace(json.dumps(item['itemName']), '"', '')
+                            #print "itemName: " + itemName
+                            filePath    = string.replace(os.path.realpath(pic), '"', '\'')
+                            #print "filePath: " + filePath
+
+                            tree = ET.parse(itemName+".xml")
+                            root = tree.getroot()
+                            
+                            #print "Found name!\n"
+                            images = root[2]
+                            image = ET.SubElement(images, "image")
+                            ##Fullpath
+                            image.set('file', filePath)
+                            box = ET.SubElement(image, "box")
+                            box.set('top', top)
+                            box.set('left', left)
+                            box.set('width', width)
+                            box.set('height', height)
+                            label = ET.SubElement(box, "label")
+                            label.text = itemName
+                            tree.write(itemName+".xml")
+                ##Train and create new SVM! and then varify the detector
+                #print "In newFolders Start train for " + itemName + "\n"
+                trainNewDetector(itemName)
     time.sleep(60)

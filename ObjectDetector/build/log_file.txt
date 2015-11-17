@@ -24,3 +24,5 @@ It took: 23.6558 seconds! Ran program with: jpg
 
 It took: 2.20914 seconds! Ran program with: jpg
 
+It took: 5.08347 seconds! Ran program with: jpg
+
