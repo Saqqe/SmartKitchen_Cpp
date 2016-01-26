@@ -1,3 +1,0 @@
-/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/dlib_build/CMakeFiles/dlib.dir
-/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/main.dir
-/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/CMakeFiles/train_object_detector.dir

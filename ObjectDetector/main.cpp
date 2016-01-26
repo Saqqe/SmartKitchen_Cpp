@@ -7,6 +7,7 @@
 * @version 0.1 2015-10-06
 */
 
+#include <dlib/image_loader/load_image.h>
 #include <dlib/svm_threaded.h>
 #include <dlib/string.h>
 #include <dlib/gui_widgets.h>
@@ -513,8 +514,8 @@ int main(int argc, char** argv)
                 {
                     picName = cmdParser[j];
                     found   = picName.find_last_of("/");
-                    moveTo  = "mv " + picName + " " + get_current_dir() +"/dustbin/" + picName.substr(found+1); // Change "mv" to "rm", when testing is done
-                    //moveTo  = "rm " + picName;
+                    //moveTo  = "mv " + picName + " " + get_current_dir() +"/dustbin/" + picName.substr(found+1); // Change "mv" to "rm", when testing is done
+                    moveTo  = "rm " + picName;
                     //Linux, move file
                     const char * c = moveTo.c_str();
                     status         = system(c);
@@ -523,7 +524,7 @@ int main(int argc, char** argv)
 
             if(objNotDetected)
             {
-                cout << "There is new images in unkwon folder!" << endl;
+                cout << "There is new images in unknown folder!" << endl;
                 unknownImagesHandling();
                 // Somehow tell user about this!
             }

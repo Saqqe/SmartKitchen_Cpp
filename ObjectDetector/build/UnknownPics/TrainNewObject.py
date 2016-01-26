@@ -4,9 +4,23 @@ import urllib
 import urllib2
 import requests
 
-knownPicsFolderPath = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
+knownPicsFolderPath = "/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
 
 #---------------------------------------------Functions--------------------------------------------------------------------------------
+
+#Deletes .jpg files from the target dir IF it-s tagged with "Nada" in json
+def removeNadaItem( jsonIN ):
+    tempCWD = os.getcwd()
+    os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/")
+    for item in jsonIN:
+        itemName    = string.replace(json.dumps(item['itemName']), '"', '')
+        picName     = string.replace(json.dumps(item['picName']), '"', '')
+        pics        = glob.glob("*.jpg")
+        for pic in pics:
+            if itemName == "Nada":
+                os.remove(picName)
+    os.chdir(tempCWD)
+    
 
 def createDirIfNoExist( folderName ):
     tempCWD = os.getcwd()
@@ -24,7 +38,7 @@ def createDirIfNoExist( folderName ):
 ##Destination directory must exist
 def movePictures( pic, itemName ):
     temp = os.getcwd()
-    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/")
+    os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/UnknownPics/")
     destination = knownPicsFolderPath+itemName+"/"
     shutil.move(pic, destination+pic)
     os.chdir(temp)
@@ -35,9 +49,9 @@ def movePictures( pic, itemName ):
 ##Destination directory must exist
 def copyPictures( source ):
     temp = os.getcwd()
-    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+source+"/")
+    os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+source+"/")
     pics = glob.glob("*.jpg")
-    destination = "/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/"
+    destination = "/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/"
     if pics:
         for pic in pics:
             shutil.copyfile(pic, destination+pic)
@@ -45,20 +59,20 @@ def copyPictures( source ):
 
 def trainNewDetector( itemName ):
     tempCWD = os.getcwd()
-    os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build")
+    os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build")
     ls_out = subprocess.check_output(['ls'])
     trainObjectDetector = "train_object_detector"
     #print ls_out
     if( trainObjectDetector in ls_out ):
-        os.popen("./train_object_detector -tv -c 5 --flip /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
+        os.popen("./train_object_detector -tv -c 5 --flip /home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"
                  + itemName + "/" + itemName +".xml")
     copyPictures(itemName)
-    subprocess.Popen("./main /home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
+    subprocess.Popen("./main /home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/InComing/*.jpg", shell =True)
     os.chdir(tempCWD)
 
 #----------------------------------------------------------End of functions-------------------------------------------------------------------------
 
-##Loop every 60sec
+##Loop every 30sec
 while True:
     ##Connect to parse.com
     connection = httplib.HTTPSConnection('api.parse.com', 443)
@@ -104,30 +118,35 @@ while True:
         movedPicToOldFolderName = []
         isPicsMoved             = False
         itemName                = ""
+
+        ##Del pics tagged with "Nada"
+        removeNadaItem( jsonIn )
+        
         for pic in pics:
             for item in jsonIn:
                 itemName    = string.replace(json.dumps(item['itemName']), '"', '')
-                newFolder   = createDirIfNoExist( itemName )
-                if newFolder is True:
-                    newFolders.append(itemName)
-                ##Move pic to right folder!
-                picName = string.replace(json.dumps(item['picName']), '"', '')
-                if( pic == picName ):
-                    movePictures(pic, itemName)
-                    movedPicToOldFolderName.append(pic)
-                    if itemName not in newFolders and itemName not in newPicsInOldFolder:
-                        newPicsInOldFolder.append(itemName)
+                if itemName != "Nada":
+                    newFolder   = createDirIfNoExist( itemName )
+                    if newFolder is True:
+                        newFolders.append(itemName)
+                    ##Move pic to right folder!
+                    picName = string.replace(json.dumps(item['picName']), '"', '')
+                    if( pic == picName ):
+                        movePictures(pic, itemName)
+                        movedPicToOldFolderName.append(pic)
+                        if itemName not in newFolders and itemName not in newPicsInOldFolder:
+                            newPicsInOldFolder.append(itemName)    
 
         ##Check if "newFolders" contains data
         if newFolders:
             #print newFolders
             for folder in newFolders:
                 ##Change working dir to first element in "newFolders"
-                os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder+"/")
+                os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder+"/")
                 #print os.getcwd()
 
                 pics = glob.glob("*.jpg")
-                tree = ET.parse("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/template.xml")
+                tree = ET.parse("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/template.xml")
                 root = tree.getroot()
 
                 itemName = ""
@@ -169,7 +188,7 @@ while True:
             for folder in newPicsInOldFolder:
                 print folder
                 ##Change working dir to first element in "newFolders"
-                os.chdir("/home/saqib/DevFolder/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder)
+                os.chdir("/home/pi/ownDev/SmartKitchen_Cpp/ObjectDetector/build/KnownPics/"+folder)
                 print os.getcwd()
 
                 itemName = ""
@@ -208,4 +227,4 @@ while True:
                 ##Train and create new SVM! and then varify the detector
                 #print "In newFolders Start train for " + itemName + "\n"
                 trainNewDetector(itemName)
-    time.sleep(60)
+    time.sleep(30)

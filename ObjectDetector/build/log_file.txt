@@ -1,28 +1,134 @@
-It toke: 4.99078 secound! Ran program with: png
+It took: 42.4159 seconds! Ran program with: jpg
 
-It took: 2.91198 seconds! Ran program with: jpg
+It took: 1.64478 seconds! Ran program with: jpg
 
-It took: 2.80511 seconds! Ran program with: jpg
+It took: 5.49069 seconds! Ran program with: jpg
 
-It took: 4.77222 seconds! Ran program with: jpg
+It took: 5.32379 seconds! Ran program with: jpg
 
-It took: 4.89198 seconds! Ran program with: jpg
+It took: 1054.76 seconds! Ran program with: jpg
 
-It took: 5.01797 seconds! Ran program with: jpg
+It took: 619.03 seconds! Ran program with: jpg
 
-It took: 5.02397 seconds! Ran program with: jpg
+It took: 7.33762 seconds! Ran program with: jpg
 
-It took: 4.98314 seconds! Ran program with: jpg
+It took: 6.99351 seconds! Ran program with: jpg
 
-It took: 15.9261 seconds! Ran program with: jpg
+It took: 5.86038 seconds! Ran program with: jpg
 
-It took: 2.41395 seconds! Ran program with: jpg
+It took: 5.70162 seconds! Ran program with: jpg
 
-It took: 6.23065 seconds! Ran program with: jpg
+It took: 5.71946 seconds! Ran program with: jpg
 
-It took: 23.6558 seconds! Ran program with: jpg
+It took: 5.71011 seconds! Ran program with: jpg
 
-It took: 2.20914 seconds! Ran program with: jpg
+It took: 5.83844 seconds! Ran program with: jpg
 
-It took: 5.08347 seconds! Ran program with: jpg
+It took: 5.78242 seconds! Ran program with: jpg
+
+It took: 5.72078 seconds! Ran program with: jpg
+
+It took: 5.70131 seconds! Ran program with: jpg
+
+It took: 5.97859 seconds! Ran program with: jpg
+
+It took: 5.76661 seconds! Ran program with: jpg
+
+It took: 5.81518 seconds! Ran program with: jpg
+
+It took: 5.74292 seconds! Ran program with: jpg
+
+It took: 5.80021 seconds! Ran program with: jpg
+
+It took: 5.79493 seconds! Ran program with: jpg
+
+It took: 172.768 seconds! Ran program with: jpg
+
+It took: 295.779 seconds! Ran program with: jpg
+
+It took: 152.448 seconds! Ran program with: jpg
+
+It took: 184.263 seconds! Ran program with: jpg
+
+It took: 13.9283 seconds! Ran program with: jpg
+
+It took: 91.1731 seconds! Ran program with: jpg
+
+It took: 24.2298 seconds! Ran program with: jpg
+
+It took: 112.635 seconds! Ran program with: jpg
+
+It took: 131.369 seconds! Ran program with: jpg
+
+It took: 132.334 seconds! Ran program with: jpg
+
+It took: 128.483 seconds! Ran program with: jpg
+
+It took: 92.8609 seconds! Ran program with: jpg
+
+It took: 131.795 seconds! Ran program with: jpg
+
+It took: 116.054 seconds! Ran program with: jpg
+
+It took: 164.144 seconds! Ran program with: jpg
+
+It took: 33.0406 seconds! Ran program with: jpg
+
+It took: 62.4097 seconds! Ran program with: jpg
+
+It took: 55.7306 seconds! Ran program with: jpg
+
+It took: 81.2154 seconds! Ran program with: jpg
+
+It took: 111.512 seconds! Ran program with: jpg
+
+It took: 80.1194 seconds! Ran program with: jpg
+
+It took: 55.8427 seconds! Ran program with: jpg
+
+It took: 56.8047 seconds! Ran program with: jpg
+
+It took: 77.3839 seconds! Ran program with: jpg
+
+It took: 100.764 seconds! Ran program with: jpg
+
+It took: 53.6359 seconds! Ran program with: jpg
+
+It took: 49.4384 seconds! Ran program with: jpg
+
+It took: 82.6211 seconds! Ran program with: jpg
+
+It took: 139.393 seconds! Ran program with: jpg
+
+It took: 141.578 seconds! Ran program with: jpg
+
+It took: 137.023 seconds! Ran program with: jpg
+
+It took: 94.3239 seconds! Ran program with: jpg
+
+It took: 6.28467 seconds! Ran program with: jpg
+
+It took: 48.2476 seconds! Ran program with: jpg
+
+It took: 121.178 seconds! Ran program with: jpg
+
+It took: 41.0162 seconds! Ran program with: jpg
+
+It took: 74.9289 seconds! Ran program with: jpg
+
+It took: 31.0326 seconds! Ran program with: jpg
+
+It took: 6.76723 seconds! Ran program with: jpg
+
+It took: 36.4902 seconds! Ran program with: jpg
+
+It took: 28.2281 seconds! Ran program with: jpg
+
+It took: 124.651 seconds! Ran program with: jpg
+
+It took: 34.6986 seconds! Ran program with: bmp
+
+It took: 32.198 seconds! Ran program with: bmp
+
+It took: 127.906 seconds! Ran program with: bmp
 

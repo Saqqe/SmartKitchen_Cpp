@@ -12,6 +12,7 @@ PROJECT(ObjectDetector)
 #SET(CMAKE_CXX_FLAGS "-std=c++11")
 
 include(dlib/cmake)
+DLIB_JPEG_SUPPORT
 
 #include the subdirectory containing our libs
 #add_subdirectory (cpp-json)
